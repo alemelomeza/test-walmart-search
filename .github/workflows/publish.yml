@@ -14,12 +14,16 @@ jobs:
     runs-on: ubuntu-18.04
     steps:
       - uses: actions/checkout@v2
-      - name: Build Docker Image
-        run: docker build . --tag ${{env.APP_NAME}}:${{github.sha}}
-
+      - name: Get short sha
+        id: tags
+        run: |
+          echo ::set-output name=sha_short::$(git rev-parse --short=4 ${{github.sha}})
       - name: Publish to Registry
         uses: elgohr/Publish-Docker-Github-Action@master
         with:
           name: ${{env.ACCOUNT}}/${{env.APP_NAME}}
           username: ${{secrets.DOCKER_USERNAME}}
-          password: ${{secrets.DOCKER_PASSWORD}}          
+          password: ${{secrets.DOCKER_PASSWORD}}
+          tags: ${{TAG}}
+        env:
+          TAG: ${{steps.tags.outputs.sha_short}}        
