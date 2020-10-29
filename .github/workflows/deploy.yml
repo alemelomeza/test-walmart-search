@@ -1,0 +1,19 @@
+name: Deploy
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-18.04
+    steps:
+      - uses: actions/checkout@v2
+      - uses: akhileshns/heroku-deploy@v3.6.8
+        with:
+          heroku_api_key: ${{secrests.HEROKU_API_KEY}}
+          heroku_app_name: "test-walmart-search"
+          heroku_email: "alxmlo@gmail.com"
+          usedocker: true
+

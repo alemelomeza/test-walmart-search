@@ -6,7 +6,7 @@ on:
       - main
 
 jobs:
-  Hello:
+  hello:
     runs-on: ubuntu-18.04
     steps:
       - name: Hello World
