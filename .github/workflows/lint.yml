@@ -6,7 +6,7 @@ on:
             - main
 
 jobs:
-    lint:
+    Lint:
         runs-on: ubuntu-18.04
         steps:
             - uses: actions/checkout@v2
@@ -18,5 +18,4 @@ jobs:
             - name: lint
               run: |
               curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh -s -- -b $(go env GOPATH)/bin v1.26.0
-
               golangci-lint run
