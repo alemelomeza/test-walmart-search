@@ -11,11 +11,14 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Build Docker Image
-        run: docker build . --tag test-walmart-search:$(date +%s)
+        run: docker build . --tag ${{APP_NAME}}:${{GITHUB_SHA_SHORT}}
 
       - name: Publish to Registry
         uses: elgohr/Publish-Docker-Github-Action@master
         with:
-          name: alxmlo/test-walmart-search
+          name: ${{ACCOUNT}}/${{APP_NAME}}
           username: ${{secrets.DOCKER_USERNAME}}
           password: ${{secrets.DOCKER_PASSWORD}}
+        env:
+          APP_NAME: "test-walmart-search"
+          ACCOUNT: "alxmlo"

@@ -13,7 +13,13 @@ jobs:
       - uses: akhileshns/heroku-deploy@v3.6.8
         with:
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
-          heroku_app_name: "test-walmart-search"
-          heroku_email: "alxmlo@gmail.com"
+          heroku_app_name: ${{APP_NAME}}
+          heroku_email: ${{EMAIL}}
+          healthcheck: "https:/${{APP_NAME}}.herokuapp.com/health"
+          checkstring: "ok"
+          delay: 10
+          rollbackonhealthcheckfailed: true
           usedocker: true
-
+        env:
+          APP_NAME: "test-walmart-search"
+          EMAIL: "alxmlo@gmail.com"
