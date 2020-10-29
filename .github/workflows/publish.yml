@@ -8,18 +8,18 @@ on:
 env:
   APP_NAME: "test-walmart-search"
   ACCOUNT: "alxmlo"
-  
+
 jobs:
   build-and-publish:
     runs-on: ubuntu-18.04
     steps:
       - uses: actions/checkout@v2
       - name: Build Docker Image
-        run: docker build . --tag ${{APP_NAME}}:${{GITHUB_SHA_SHORT}}
+        run: docker build . --tag ${{env.APP_NAME}}:${{GITHUB_SHA_SHORT}}
 
       - name: Publish to Registry
         uses: elgohr/Publish-Docker-Github-Action@master
         with:
-          name: ${{ACCOUNT}}/${{APP_NAME}}
+          name: ${{env.ACCOUNT}}/${{env.APP_NAME}}
           username: ${{secrets.DOCKER_USERNAME}}
           password: ${{secrets.DOCKER_PASSWORD}}          
