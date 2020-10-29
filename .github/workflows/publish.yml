@@ -15,7 +15,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Build Docker Image
-        run: docker build . --tag ${{env.APP_NAME}}:${{GITHUB_SHA}}
+        run: docker build . --tag ${{env.APP_NAME}}:${{github.sha}}
 
       - name: Publish to Registry
         uses: elgohr/Publish-Docker-Github-Action@master
