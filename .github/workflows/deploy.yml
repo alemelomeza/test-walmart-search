@@ -5,6 +5,10 @@ on:
     branches:
       - main
 
+env:
+  APP_NAME: "test-walmart-search"
+  EMAIL: "alxmlo@gmail.com"
+
 jobs:
   build-and-deploy:
     runs-on: ubuntu-18.04
@@ -20,6 +24,3 @@ jobs:
           delay: 10
           rollbackonhealthcheckfailed: true
           usedocker: true
-        env:
-          APP_NAME: "test-walmart-search"
-          EMAIL: "alxmlo@gmail.com"
