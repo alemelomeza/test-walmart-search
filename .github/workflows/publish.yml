@@ -9,7 +9,7 @@ jobs:
   build-and-publish:
     runs-on: ubuntu-18.04
     steps:
-      - uses: action/checkout@v2
+      - uses: actions/checkout@v2
       - name: Build Docker Image
         run: docker build . --tag test-walmart-search:$(date +%s)
 
