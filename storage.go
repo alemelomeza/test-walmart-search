@@ -29,10 +29,10 @@ func NewStorage(storageType StorageType) (Storage, error) {
 	case Mongo:
 		uri := fmt.Sprintf(
 			"mongodb+srv://%s:%s@%s/%s?retryWrites=true&w=majority",
-			goDotEnvVariable("USERNAME"),
-			goDotEnvVariable("PASSWORD"),
-			goDotEnvVariable("DBURL"),
-			goDotEnvVariable("DBNAME"),
+			getEnvVariable("USERNAME"),
+			getEnvVariable("PASSWORD"),
+			getEnvVariable("DBURL"),
+			getEnvVariable("DBNAME"),
 		)
 		stg, err = NewStorageMongo(uri)
 	}

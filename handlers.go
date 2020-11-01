@@ -36,6 +36,7 @@ func IndexHandler(w http.ResponseWriter, r *http.Request) {
 
 // SearchHandler handles the search path
 func SearchHandler(w http.ResponseWriter, r *http.Request) {
+	var db Storage
 	// Initialize Storage
 	db, err := NewStorage(getEnvStorage())
 	if err != nil {

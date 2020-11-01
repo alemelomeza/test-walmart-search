@@ -6,9 +6,7 @@ import (
 )
 
 // StorageMemory ...
-type StorageMemory struct {
-	products []*Product
-}
+type StorageMemory struct{}
 
 // Find ...
 func (s *StorageMemory) Find(criteria string) ([]*Product, error) {
