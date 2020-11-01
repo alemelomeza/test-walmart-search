@@ -1,5 +1,9 @@
+
+.github/
+.git/
 .editorconfig
 .env
-README.md
+.gitignore
 LICENCE
+README.md
 *_test.go

@@ -14,12 +14,16 @@
         <div class="card-price">
             {{ if hasDiscount $.Discount }}
             <p>
-                <strong>${{ applyDiscount .Price $.Discount }}</strong>
+                <strong class="card-currency">{{ applyDiscount .Price $.Discount }}</strong>
                 <span class="card-discount">{{ $.Discount }}%</span>
             </p>
-            <p style="text-decoration: line-through;">${{ .Price }}</p>
+            <p style="text-decoration: line-through;">
+                <span class="card-currency">{{ .Price }}</span>
+            </p>
             {{ else }}
-            <p><strong>${{ .Price }}</strong></p>
+            <p>
+                <strong class="card-currency">{{ .Price }}</strong>
+            </p>
             {{ end }}
         </div>
         <div class="card-action">

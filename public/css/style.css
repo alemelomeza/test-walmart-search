@@ -108,6 +108,9 @@ main .card-price {
     margin-bottom: 16px;
     font-size: 1.5em;
 }
+main .card-currency::before {
+    content: '$';
+}
 main .card-discount {
     background-color: red;
     color: #fff;

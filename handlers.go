@@ -8,6 +8,7 @@ import (
 
 // ViewData struct for response of serach
 type ViewData struct {
+	Page     string
 	Discount int        `json:"discount"`
 	Criteria string     `json:"criteria"`
 	Products []*Product `json:"products"`
@@ -29,15 +30,17 @@ func IndexHandler(w http.ResponseWriter, r *http.Request) {
 	}
 
 	// Execute templates and handle error
-	if err := tpl.Execute(w, nil); err != nil {
+	if err := tpl.Execute(w, struct {
+		Page string
+	}{"Inicio"}); err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 	}
 }
 
 // SearchHandler handles the search path
 func SearchHandler(w http.ResponseWriter, r *http.Request) {
-	var db Storage
 	// Initialize Storage
+	var db Storage
 	db, err := NewStorage(getEnvStorage())
 	if err != nil {
 		log.Fatal(err)
@@ -66,6 +69,9 @@ func SearchHandler(w http.ResponseWriter, r *http.Request) {
 		"templates/layout.gohtml",
 		"templates/search.gohtml",
 	)
+	if err != nil {
+		http.Error(w, err.Error(), http.StatusInternalServerError)
+	}
 
 	// Products
 	var products []*Product
@@ -76,6 +82,7 @@ func SearchHandler(w http.ResponseWriter, r *http.Request) {
 
 	// Excecute templates and handle error
 	if err := tpl.Execute(w, ViewData{
+		Page:     "Resultados",
 		Discount: Campaing(q),
 		Criteria: q,
 		Products: products,
