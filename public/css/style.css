@@ -1,0 +1,179 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.content {
+    font-family: 'Signika', sans-serif;
+    display: grid;
+    grid-template-areas:"header"
+                        "main"
+                        "footer";
+}
+/* Header */
+header {
+    grid-area: header;
+}
+header .header-info {
+    background-color: #041e42;
+    color: #fff;
+    font-size: 12px;
+    min-height: 32px;
+    padding: 4px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+header .header-info a {
+    text-decoration: none;
+    color: #5d92f4;
+    transition: color 0.5s ease;
+}
+header .header-info a:hover {
+    color: #ffffff;
+}
+header .header-info .links a {
+    text-decoration: none;
+    color: #fff;
+    padding: 0px 10px;
+}
+header .header-info .links a:hover {
+    text-decoration: underline;
+    text-decoration-color: #5d92f4;
+}
+header .header-site {
+    background-color: #0071ce;
+    padding: 6px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+header .header-site .header-logo {
+    color: #fff;
+    font-size: 32px;
+}
+header .header-site .header-logo a {
+    color: #fff;
+    text-decoration: none;
+    font-style: italic;
+    font-weight: bolder;
+}
+header .header-site .header-search input {
+    font-size: 16px;
+    padding: 10px 33px;
+    border: none;
+    border-radius: 50px;
+    min-width: 50vw;
+}
+header .header-site button {
+    padding: 12px;
+    border: none;
+    border-radius: 3px;
+    font-size: 15px;
+    background-color: #0059a1;
+    color: #fff;
+    margin-right: 7px;
+    transition: background-color 0.5s ease;
+    cursor: pointer;
+}
+header .header-site button i {
+    font-size: 20px;
+}
+header .header-site button:hover {
+    background-color: #00D014;
+}
+header .header-site button:last-child {
+    background-color: #174176;
+}
+/* Main */
+main {
+    grid-area: main;
+    min-height: 25vw;
+    background-color: #f2f2f2;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 24px;
+}
+main .card {
+    width: 250px;
+    border: none;
+    border-radius: 16px;
+    padding: 16px;
+    background-color: #fff;
+    margin-right: 16px;
+    margin-bottom: 32px;
+}
+main .card-price {
+    margin-top: 8px;
+    margin-bottom: 16px;
+    font-size: 1.5em;
+}
+main .card-discount {
+    background-color: red;
+    color: #fff;
+    border-radius: 23px;
+    padding: 2px 4px;
+}
+main .card-action {
+    margin-top: 8px;
+    text-align: center;
+}
+main .card-action button {
+    border: 2px solid #f2f2f2;
+    border-radius: 23px;
+    padding: 8px 32px;
+    font-size: 16px;
+    font-weight: bolder;
+    background-color: #fff;
+    color: #0071ce;
+    text-align: center;
+    cursor: pointer;
+}
+/* Footer */
+footer {
+    grid-area: footer;
+    font-size: 10px;
+    text-align: center;
+    margin-bottom: 8px;
+}
+footer section.footer-links {
+    background-color: #0071ce;
+    color: #fff;
+    text-align: left;
+    padding: 30px;
+    display: flex;
+    justify-content: space-between;
+}
+footer section.footer-links div {
+    display: flex;
+    flex-direction: column;
+}
+footer section.footer-links header{
+    font-size: 1.6em;
+    font-weight: bolder;
+    padding-top: 1em;
+    padding-bottom: 1em;
+}
+footer section.footer-links a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 12px;
+    padding: 5px 0;
+}
+footer section.footer-links div.footer-rrss {
+    display: inline-block;
+}
+footer section.footer-links div.footer-rrss a{
+    font-size: 18px;
+    margin-right: 20px;
+}
+footer img {
+    vertical-align: middle;
+    margin-left: 10px;
+}
+footer hr.footer-divider {
+    height: 1px;
+    width: 70%;
+    background: #979797;
+    margin: 5px auto;
+}

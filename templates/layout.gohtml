@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>title | Test Walmart Search</title>
+    <!-- Styles -->
+    <link href="https://fonts.googleapis.com/css2?family=Signika:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    <div class="content">
+        <header>
+            <section class="header-info">
+                <span>Servicio al cliente de Test Walmart Search: <a href="#">600 400 9000</a> | Horario: de lunes a viernes de 8:00 a 22:00 y sábado, domingo y festivos de 9:00 a 22:00</span>
+                <span class="links">
+                    <i class="far fa-calendar"></i> <a href="#">agenda tu visita</a>
+                    <i class="far fa-warehouse"></i> <a href="#">locales y horarios</a>
+                </span>
+            </section>
+            <section class="header-site">
+                <div class="header-logo">
+                    <a href="/">Test Walmart Search </a> <span style="color: #fdaa17;"><i class="far fa-asterisk"></i></span>
+                </div>
+                <div class="header-search">
+                    <form action="/search" method="get">
+                        <input type="text" name="q" placeholder="¿Qué estás buscando?" required>
+                    </form>
+                </div>
+                <div>
+                    <button>
+                        <i class="far fa-shopping-cart"></i> Supermercado
+                    </button>
+                    <button>
+                        <i class="far fa-cart-plus"></i> <strong>0</strong>
+                    </button>
+                </div>
+            </section>
+        </header>
+        <main>
+        {{ template "content" . }}
+        </main>
+        <footer>
+            <section class="footer-links">
+                <div>
+                    <header>¿Necesitas Ayuda?</header>
+                    <a href="#">Preguntas frecuentes</a>
+                    <a href="#">Servicio técnico</a>
+                    <a href="#">Consulta tu boleta</a>
+                    <a href="#">Devoluciones y cambios</a>
+                    <a href="#">Consultas y reclamos</a>
+                </div>
+                <div>
+                    <header>Infórmate</header>
+                    <a href="#">Medios de pago</a>
+                    <a href="#">Pago 100% seguro</a>
+                    <a href="#">Ganadores de concursos</a>
+                    <a href="#">Beneficios Lider.cl</a>
+                    <a href="#">Tarjeta de regalo</a>
+                    <a href="#">Recetas Lider</a>
+                    <a href="#">Servifácil</a>
+                </div>
+                <div>
+                    <header>Encuentranos</header>
+                    <a href="#">Nuestros locales</a>
+                    <a href="#">Nuestros locales</a>
+                    <a href="#">Tiendas con Pickup</a>
+                    <a href="#">Cobertura supermercado</a>
+                </div>
+                <div>
+                    <header>Hacerca de Test Walmart Search</header>
+                    <a href="#">Acerca de nosotros</a>
+                    <a href="#">Términos y condiciones</a>
+                    <a href="#">Política de privacidad</a>
+                    <a href="#">Información legal</a>
+                    <a href="#">Trabaja en Lider</a>
+                </div>
+                <div class="footer-rrss">
+                    <header>Siguenos</header>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </section>
+            <section>
+                Nuestras empresas:
+                <img height="56" src="assets/images/logo.svg" alt="logo">
+                <img height="56" src="assets/images/logo-1.svg" alt="logo1">
+                <img height="56" src="assets/images/logo-2.svg" alt="logo2">
+                <img height="56" src="assets/images/logo-3.svg" alt="logo3">
+                <img height="56" src="assets/images/logo-4.svg" alt="logo4">
+            </section>
+            <hr class="footer-divider"></hr>
+            <section>
+                Test Walmart Search - Razón Social: Test Walmart Search. Dirección: Test Walmart Search N° 000, Santiago, Chile.
+            </section>
+        </footer>
+    </div>
+</body>
+</html>

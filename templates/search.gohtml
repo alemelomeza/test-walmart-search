@@ -1,0 +1,32 @@
+{{ define "content" }}
+    <div style="width: 100%; margin-bottom: 16px;">Resultados para <strong>{{.Criteria -}}</strong>:</div>
+    {{ range .Products }}
+    <div class="card">
+        <div class="card-img">
+            <img src="https://{{- .Image -}}" alt="{{- .Brand -}}">
+        </div>
+        <div class="card-description">
+            <p>
+                <strong class="card-brand">{{- .Brand -}}</strong>&nbsp;
+                {{- .Description -}}.
+            </p>
+        </div>
+        <div class="card-price">
+            {{ if hasDiscount $.Discount }}
+            <p>
+                <strong>${{ applyDiscount .Price $.Discount }}</strong>
+                <span class="card-discount">{{ $.Discount }}%</span>
+            </p>
+            <p style="text-decoration: line-through;">${{ .Price }}</p>
+            {{ else }}
+            <p><strong>${{ .Price }}</strong></p>
+            {{ end }}
+        </div>
+        <div class="card-action">
+            <button>Agregar</button>
+        </div>
+    </div>
+    {{ else }}
+        <div style="text-align: center;">Sin productos.</div>
+    {{ end }}
+{{ end }}
