@@ -27,8 +27,14 @@ func main() {
 	// Search handker
 	http.HandleFunc("/search", SearchHandler)
 
+	// Healthcheck
+	http.HandleFunc("/health", func(w http.ResponseWriter, r *http.Request) {
+		w.Header().Set("Content-Type", "text/plain")
+		w.Write([]byte("ok"))
+	})
+
 	// Server start up
-	log.Fatal(http.ListenAndServe(":8080", nil))
+	log.Fatal(http.ListenAndServe(goDotEnvVariable("PORT"), nil))
 }
 
 func goDotEnvVariable(key string) string {

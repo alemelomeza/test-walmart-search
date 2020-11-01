@@ -55,10 +55,7 @@ func SearchHandler(w http.ResponseWriter, r *http.Request) {
 	// Parse templates and handle error
 	funcMap := template.FuncMap{
 		"hasDiscount": func(d int) bool {
-			if d == 0 {
-				return false
-			}
-			return true
+			return d > 0
 		},
 		"applyDiscount": func(p int, d int) int {
 			return (p * d) / 100
