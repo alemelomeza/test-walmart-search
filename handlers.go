@@ -8,10 +8,10 @@ import (
 
 // ViewData struct for response of serach
 type ViewData struct {
-	Page     string
-	Discount int        `json:"discount"`
-	Criteria string     `json:"criteria"`
 	Products []*Product `json:"products"`
+	Page     string
+	Criteria string `json:"criteria"`
+	Discount int    `json:"discount"`
 }
 
 // IndexHandler handles the index path
@@ -82,10 +82,10 @@ func SearchHandler(w http.ResponseWriter, r *http.Request) {
 
 	// Excecute templates and handle error
 	if err := tpl.Execute(w, ViewData{
-		Page:     "Resultados",
-		Discount: Campaing(q),
-		Criteria: q,
 		Products: products,
+		Page:     "Resultados",
+		Criteria: q,
+		Discount: Campaing(q),
 	}); err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 	}

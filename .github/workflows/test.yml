@@ -4,6 +4,9 @@ on:
   push:
     branches:
       - main
+  pull_request:
+    branches:
+      - main
 
 jobs:
   est:
@@ -23,6 +26,6 @@ jobs:
       - uses: actions/checkout@v2
 
       - name: Test
-        run: ENVIRONMENT=${{ env.ENV }} go test ./...
+        run: ENVIRONMENT=${{ env.ENV }} go test -race ./...
         env:
           ENV: test

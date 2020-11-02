@@ -23,6 +23,7 @@ func (s *StorageMemory) findByID(criteria int) ([]*Product, error) {
 
 	for _, p := range getProducts() {
 		if p.ID == criteria {
+			p := p // avoid mistakes using reference to loop iterator variable https://link.medium.com/hiTPDoHZ0ab
 			ps = append(ps, &p)
 			break
 		}
@@ -36,6 +37,7 @@ func (s *StorageMemory) findByText(criteria string) ([]*Product, error) {
 
 	for _, p := range getProducts() {
 		if strings.Contains(p.Brand, criteria) || strings.Contains(p.Description, criteria) {
+			p := p // avoid mistakes using reference to loop iterator variable https://link.medium.com/hiTPDoHZ0ab
 			ps = append(ps, &p)
 		}
 	}
