@@ -25,7 +25,7 @@ git clone https://github.com/walmartdigital/products-db.git
 Run products database:
 
 ```
-cd products/-db \
+cd products-db \
     && make database-up \
     && cd ..
 # Stop database
@@ -64,6 +64,7 @@ Run container:
 
 ```
 docker run \
+-e PORT=8080
 -v $PWD/.env:/app/.env \
 -p 8080:80 \
 -d
@@ -71,3 +72,13 @@ test-walmart-search
 ```
 
 Visit [http://localhost:8080](http://localhost:8080).
+
+## Tests
+
+```
+docker run \
+-it
+-e ENVIRONMENT=test
+--entrypoint go test -v -race ./...
+text-walmart-search
+```
