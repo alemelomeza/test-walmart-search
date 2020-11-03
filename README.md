@@ -64,7 +64,7 @@ Run container:
 
 ```
 docker run \
--e PORT=8080
+-e PORT=80
 -v $PWD/.env:/app/.env \
 -p 8080:80 \
 -d
