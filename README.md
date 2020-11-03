@@ -76,9 +76,10 @@ Visit [http://localhost:8080](http://localhost:8080).
 ## Tests
 
 ```
-docker run \
--it
--e ENVIRONMENT=test
---entrypoint go test -v -race ./...
-text-walmart-search
+docker run --rm -it \
+-w /app \
+-v $PWD/:/app \
+-e ENVIRONMENT=test \
+golang:1.14.0-alpine3.11 \
+/bin/sh -c "go clean --modcache && go test -race -v ./..."
 ```
